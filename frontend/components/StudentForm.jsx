@@ -11,7 +11,7 @@ export default function StudentForm({ initialData, onSubmit, onCancel }) {
 
   function handleChange(e) {
     const { name, value } = e.target;
-    setForm(prev => ({ ...prev, [name]: value }));
+    setForm((prev) => ({ ...prev, [name]: value }));
   }
 
   function handleSubmit(e) {
@@ -20,61 +20,67 @@ export default function StudentForm({ initialData, onSubmit, onCancel }) {
   }
 
   return (
-    <form 
-      onSubmit={handleSubmit} 
-      className="bg-white p-6 rounded-lg shadow-lg max-w-md w-full"
+    <form
+      onSubmit={handleSubmit}
+      className="bg-white p-8 rounded-2xl shadow-xl max-w-lg w-full space-y-6"
     >
-      <h2 className="text-xl font-bold mb-4">
+      <h2 className="text-2xl font-semibold text-gray-800 mb-6 text-center">
         {initialData ? "Update Student" : "Add Student"}
       </h2>
 
-      <label className="block mb-3">
-        Name:
+      {/* Name */}
+      <div>
+        <label className="block text-gray-700 font-medium mb-1">Full Name</label>
         <input
           type="text"
           name="fullName"
           value={form.fullName}
           onChange={handleChange}
-          className="w-full border p-2 rounded mt-1"
+          placeholder="Enter full name"
+          className="w-full border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 p-3 rounded-lg outline-none transition"
           required
         />
-      </label>
+      </div>
 
-      <label className="block mb-3">
-        Email:
+      {/* Email */}
+      <div>
+        <label className="block text-gray-700 font-medium mb-1">Email</label>
         <input
           type="email"
           name="email"
           value={form.email}
           onChange={handleChange}
-          className="w-full border p-2 rounded mt-1"
+          placeholder="Enter email address"
+          className="w-full border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 p-3 rounded-lg outline-none transition"
           required
         />
-      </label>
+      </div>
 
-      <label className="block mb-4">
-        Enrollment Date:
+      {/* Enrollment Date */}
+      <div>
+        <label className="block text-gray-700 font-medium mb-1">Enrollment Date</label>
         <input
-          type="text"
+          type="date"
           name="enrollmentDate"
           value={form.enrollmentDate ? form.enrollmentDate.split("T")[0] : ""}
           onChange={handleChange}
-          className="w-full border p-2 rounded mt-1"
+          className="w-full border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 p-3 rounded-lg outline-none transition"
           required
         />
-      </label>
+      </div>
 
-      <div className="flex justify-end space-x-2">
-        <button 
-          type="button" 
-          onClick={onCancel} 
-          className="px-4 py-2 rounded bg-gray-300 hover:bg-gray-400"
+      {/* Buttons */}
+      <div className="flex justify-end space-x-3 pt-4">
+        <button
+          type="button"
+          onClick={onCancel}
+          className="px-5 py-2 rounded-lg bg-gray-200 text-gray-700 font-medium hover:bg-gray-300 transition"
         >
           Cancel
         </button>
-        <button 
-          type="submit" 
-          className="px-4 py-2 rounded bg-blue-600 text-white hover:bg-blue-700"
+        <button
+          type="submit"
+          className="px-5 py-2 rounded-lg bg-blue-600 text-white font-medium hover:bg-blue-700 shadow-md transition"
         >
           {initialData ? "Update" : "Add"}
         </button>
