@@ -112,8 +112,3 @@ Developed by **Earl Francis Ong**
 📌 GitHub: [earlfranciss](https://github.com/earlfranciss)
 
 ```
-
----
-
-Want me to now create the **Task App README in the exact same style** so both repos match professionally?
-```
